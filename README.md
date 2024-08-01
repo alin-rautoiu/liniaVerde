@@ -19,6 +19,8 @@ Exemplu [Visual Studio Code](https://code.visualstudio.com/)
 
 ### 07. Scrieți `npm run start`
 
+### 07.1 `npm run start -- --port=9001` sau ce alt port doriți
+
 ***
 Linkurile sunt pentru Windows, dacă aveți o distribuție de Linux ar trebui să știți să vă descurcați, iar dacă nu ce căutați cu Linux?
 ***
