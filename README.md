@@ -1,3 +1,4 @@
+
 ## Instrumente necesare și instrucțiuni
 
 ### 01. Editor de text
@@ -20,3 +21,6 @@ Exemplu [Visual Studio Code](https://code.visualstudio.com/)
 
 ***
 Linkurile sunt pentru Windows, dacă aveți o distribuție de Linux ar trebui să știți să vă descurcați, iar dacă nu ce căutați cu Linux?
+***
+
+## Documentație [Motion Canvas](https://motioncanvas.io/docs/)

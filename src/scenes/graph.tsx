@@ -8,27 +8,29 @@ import { plotBlueLine, blueCircle, plotRedLine, redSquare, colors, placeShape, p
 
 export default makeScene2D(function* (view) {
 
-    const graphDimension = new Vector2(800, 800);
+    
     const simulationDimension = new Vector2(800, 800);
-    const simulationDuration = 16;
+    // const circleRef = makeObjectToSimulate(new Vector2([-simulationDimension.x / 2, 0]));
+    // view.add(circleRef());
+
+    const graphDimension = new Vector2(800, 800);
     const bounds = { minX: 0, maxX: simulationDimension.x, minY: 0, maxY: simulationDimension.y };
-
-    const graph = makeGraph(view, graphDimension, simulationDimension, "x", "y", bounds);
-
-    const circleRef = makeObjectToSimulate(new Vector2([-simulationDimension.x / 2, 0]));
-    const dataSignal = prepareSimulation(view, simulationDimension, graph, circleRef);
+    // const graph = makeGraph(view, graphDimension, simulationDimension, "x", "y", bounds);
+    
+    // const dataSignal = prepareSimulation(view, simulationDimension, graph, circleRef);
+    
+    const simulationDuration = 16;
     const captureInterval = .5;
-
-    yield* simulate(
-        dataSignal,
-        simulationDimension,
-        bounds,
-        captureInterval,
-        simulationDuration,
-        circleRef,
-        moveStraight,
-        getPosition
-    );
+    // yield* simulate(
+    //     dataSignal,
+    //     simulationDimension,
+    //     bounds,
+    //     captureInterval,
+    //     simulationDuration,
+    //     circleRef,
+    //     moveStraight,
+    //     getPosition
+    // );
 })
 
 function makeObjectToSimulate(startingPos: Vector2) {
