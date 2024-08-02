@@ -33,5 +33,5 @@ export function plotBlueLine() : Spline {
 }
 
 export function plotLine(props: SplineProps) {
-    return <Spline points={() => []} closed={false} stroke={props?.stroke ?? lineGreen} lineWidth={props?.lineWidth ?? 2} smoothness={props?.smoothness ?? 0}></Spline> as Spline
+    return <Spline points={() => []} closed={props?.closed} start={props.start} end={props.end} stroke={props?.stroke ?? lineGreen} lineWidth={props?.lineWidth ?? 2} smoothness={props?.smoothness ?? 0}></Spline> as Spline
 }

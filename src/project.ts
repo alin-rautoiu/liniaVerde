@@ -6,8 +6,9 @@ import mainscene from './scenes/mainscene?scene';
 import graph from './scenes/graph?scene';
 import projection from './scenes/projection?scene'
 import why from "./scenes/why?scene"
-
+import fault from "./scenes/faultInOurLines?scene"
+import sinCosCircle from './scenes/sinCosCircle?scene';
 
 export default makeProject({
-  scenes: [graph],
+  scenes: [sinCosCircle],
 });

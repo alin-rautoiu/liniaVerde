@@ -50,9 +50,9 @@ export default makeScene2D(function* (view) {
     yield* chain(...textRefs.map(c => c.fontSize(20, .02)));
 
     yield* beginSlide("0.1")
-
+    const legend = createRef<Layout>();
     view.add(
-    <Layout direction={"column"} alignItems={"center"} layout>
+    <Layout clip ref={legend} direction={"column"} alignItems={"center"} layout>
         <Txt opacity={0} fontSize={30} fill={"white"} ref={(node) => spawn(node.opacity(1, .5))}>N = 11</Txt>
         <Txt opacity={0} fontSize={30} fill={"white"} ref={(node) => spawn(node.opacity(0, .5).to(1, .5))}>mediana valorilor de pe X: 9,0</Txt>
         <Txt opacity={0} fontSize={30} fill={"white"} ref={(node) => spawn(node.opacity(0, 1).to(1, .5))}>mediana valorilor de pe Y: 7,5</Txt>
@@ -70,6 +70,8 @@ export default makeScene2D(function* (view) {
     view.add(<Graph opacity={0} ref={graphRefI} bounds={{ minX: 0, maxX: 20, minY: 0, maxY: 15 }} graphSize={[600, 400]} position={positions[0]}>
     </Graph>);
     yield* all(
+        legend().size(0, .5),
+        legend().opacity(0, .5),
         setRefs[0].x(-150, .5),
         setRefs[1].x(150, .5),
         setRefs[2].x(-150, .5),

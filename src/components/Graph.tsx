@@ -7,8 +7,8 @@ export interface GraphProps extends LayoutProps {
     bounds?: SignalValue<ValueBounds>
     ticks?: Boolean,
     graphSize?: SignalValue<PossibleVector2>
-    xLabel?: string | (() => string),
-    yLabel?: string | (() => string),
+    xLabel?: string | (() => string) | Txt,
+    yLabel?: string | (() => string) | Txt,
     yTickGenerator?: (number: number) => string
 }
 
@@ -85,7 +85,7 @@ export class Graph extends Layout {
 
         const yLabelsGenerator = props.yTickGenerator
             ? props.yTickGenerator
-            : (i: number) => map(this.bounds().minY, this.bounds().maxY, i / yDensity).toString();
+            : (i: number) => map(this.bounds().minY, this.bounds().maxY, i / yDensity).toFixed(1);
 
         this.add(
             <Layout size={() => this.graphSize()} >
@@ -120,8 +120,20 @@ export class Graph extends Layout {
                         position={() => Vector2.lerp(this.container.bottomLeft().addX(-30), this.container.topLeft().addX(-30), (i + 1) / yDensity)}>
                     </Txt>
                 })}
-                <Txt fill={"white"} fontSize={20} position={() => this.container.topLeft().addY(-30)} text={props.yLabel}></Txt>
-                <Txt fill={"white"} fontSize={20} position={() => this.container.bottomRight().addX(30)} text={props.xLabel}></Txt>
+                {(() => {
+                    if(props.yLabel instanceof Txt) {
+                        return <Txt fontSize={20} position={() => this.container.topLeft().addY(-30)}>{props.yLabel}</Txt>
+                    } else {
+                        return <Txt fill={"white"} fontSize={20} position={() => this.container.topLeft().addY(-30)} text={props.yLabel}></Txt>
+                    }
+                })()}
+                {(() => {
+                    if(props.xLabel instanceof Txt) {
+                        return <Txt fontSize={20} position={() => this.container.bottomRight().addX(30)}>{props.xLabel}</Txt>
+                    } else {
+                        return <Txt fill={"white"} fontSize={20} position={() => this.container.bottomRight().addX(30)} text={props.xLabel}></Txt>
+                    }
+                })()}
             </>)
         }
 
