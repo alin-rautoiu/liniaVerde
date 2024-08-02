@@ -8,7 +8,8 @@ import projection from './scenes/projection?scene'
 import why from "./scenes/why?scene"
 import fault from "./scenes/faultInOurLines?scene"
 import sinCosCircle from './scenes/sinCosCircle?scene';
+import barchart from './scenes/barchart?scene';
 
 export default makeProject({
-  scenes: [sinCosCircle],
+  scenes: [barchart],
 });

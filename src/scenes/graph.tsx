@@ -60,7 +60,7 @@ export default makeScene2D(function* (view) {
     yield* beginSlide("end");
 })
 
-function makeObjectToSimulate(startingPos: Vector2) {
+export function makeObjectToSimulate(startingPos: Vector2) {
     const circleRef = createRef<Circle>();
 
     <Circle ref={circleRef} position={startingPos} size={80} fill={colors.red}></Circle>;
@@ -181,7 +181,7 @@ function getPosition(simObj: Reference<Shape>, bounds: ValueBounds) {
     return translatedPosition;
 }
 
-function* simulate(
+export function* simulate(
     dataSignal: SimpleSignal<any>,
     sd: number | Vector2,
     bounds: ValueBounds,
